@@ -232,10 +232,14 @@ public class MonkeyExerciseScript : MonoBehaviour
             case 3: // transform monkey 3
                 // Matrix4x4 matrix = transform.localToWorldMatrix;
                 localMat = Matrix4x4.TRS(monkey3.transform.localPosition, monkey3.transform.localRotation, monkey3.transform.localScale);
-                rotateInputMat = Matrix4x4.Rotate(Quaternion.Euler(0.0f, 180.0f, -45.0f));
-                transInputMat = Matrix4x4.Translate(new Vector3(6, 3, 6));
+                // transInputMat = Matrix4x4.Translate(new Vector3(6, 3, 6));
+                // rotateInputMat = Matrix4x4.Rotate(Quaternion.Euler(0.0f, 180.0f, -45.0f));
+                // Matrix4x4 scaleInputMat = Matrix4x4.Scale(new Vector3(3, 3, 3));
+                rotateInputMat = Matrix4x4.Rotate(Quaternion.Euler(0.0f, -90.0f, 0.0f));
+                transInputMat = Matrix4x4.Translate(new Vector3(15, 8, -8));
                 Matrix4x4 scaleInputMat = Matrix4x4.Scale(new Vector3(3, 3, 3));
-                newMat = localMat * transInputMat * scaleInputMat * rotateInputMat;
+                newMat = localMat * rotateInputMat * scaleInputMat;
+                
                 SetTransformByMatrix(monkey3, newMat);
                 break;
             case 4: // transform monkey 4
